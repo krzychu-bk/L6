@@ -109,16 +109,16 @@ int tryb3(const int tab[MAXYM_ROZMIAR][MAXYM_ROZMIAR], const int rozm, const int
 
 int main() {
 	int kwadrat[MAXYM_ROZMIAR][MAXYM_ROZMIAR];
-	int rozm,  tryb, k;
-	cin >> *rozm;
-	for (int i = 0; i < *rozm; i++) {
-		for (int j = 0; j < *rozm; j++) {
-			cin >> tab[i][j];
+	int rozm, tryb, k;
+	cin >> rozm;
+	for (int i = 0; i < rozm; i++) {
+		for (int j = 0; j < rozm; j++) {
+			cin >> kwadrat[i][j];
 		}
 	}
-	cin >> *mode;
-	if (*mode == 3 || *mode == 4) {
-		cin >> *param;
+	cin >> mode;
+	if (mode == 3 || mode == 4) {
+		cin >> k;
 	}
 	if (tryb == 0) {
 		if (tryb0(kwadrat, rozm) == 1) {
