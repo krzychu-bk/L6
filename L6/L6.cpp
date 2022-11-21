@@ -60,6 +60,50 @@ int mode1(const int array[MSIZE][MSIZE], const int size) {
 		else return 0;
 	}
 }
+int mode2(const int tab[MSIZE][MSIZE], int n)
+{
+	int sum = 0;
+	for (int t = 0; t < n; t++)
+		sum = sum + tab[t][t];
+	int sum1 = 0;
+	for (int r = 0; r < n; r++)
+		sum1 = sum1 + tab[r][n - 1 - r];
+
+	if (sum != sum1)
+		return 0;
+	for (int y = 0; y < n; y++)
+	{
+		int sumawierszy = 0;
+		for (int x = 0; x < n; x++)
+			sumawierszy = sumawierszy + tab[y][x];
+		if (sumawierszy != sum)
+			return 0;
+
+	}
+	for (int x = 0; x < n; x++)
+	{
+		int sumakolumn = 0;
+		for (int y = 0; y < n; y++)
+			sumakolumn = sumakolumn + tab[y][x];
+		if (sumakolumn != sum)
+			return 0;
+
+	}
+	for (int y = 0; y < n; y++)
+	{
+		for (int x = 0; x < n; x++)
+		{
+			if (tab[y][x] == n * n)
+			{
+				return 1;
+			}
+			else
+				return 0;
+		}
+	}
+	return 0;
+}
+
 int mode3(const int array[MSIZE][MSIZE], const int size, const int arg) {
 	int subarray[MSIZE][MSIZE];
 	for (int i = 1; i < (arg + 1); i++) {
@@ -93,6 +137,14 @@ int main() {
 			cout << "NO";
 		}
 		else if (mode1(src, size) == 1) {
+			cout << "YES";
+		}
+	}
+	if (mode == 2) {
+		if (mode2(src, size) == 0) {
+			cout << "NO";
+		}
+		else if (mode2(src, size) == 1) {
 			cout << "YES";
 		}
 	}
