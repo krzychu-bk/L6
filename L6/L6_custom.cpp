@@ -4,19 +4,6 @@ using namespace std;
 
 #define MAXYM_ROZMIAR 10
 
-void wczytaj(int tab[MAXYM_ROZMIAR][MAXYM_ROZMIAR], int *rozm, int *mode, int *param) {
-	cin >> *rozm;
-	for (int i = 0; i < *rozm; i++) {
-		for (int j = 0; j < *rozm; j++) {
-			cin >> tab[i][j];
-		}
-	}
-	cin >> *mode;
-	if (*mode == 3 || *mode == 4) {
-		cin >> *param;
-	}
-}
-
 int tryb0(const int tab[MAXYM_ROZMIAR][MAXYM_ROZMIAR],const int rozm) {
 	int sumwierszy[MAXYM_ROZMIAR]{ 0,0,0,0,0,0,0,0,0,0 }, sumkolumn[MAXYM_ROZMIAR]{0,0,0,0,0,0,0,0,0,0};
 	for (int i = 0; i < rozm; i++) {
@@ -123,7 +110,16 @@ int tryb3(const int tab[MAXYM_ROZMIAR][MAXYM_ROZMIAR], const int rozm, const int
 int main() {
 	int kwadrat[MAXYM_ROZMIAR][MAXYM_ROZMIAR];
 	int rozm,  tryb, k;
-	wczytaj(kwadrat, &rozm, &tryb, &k);
+	cin >> *rozm;
+	for (int i = 0; i < *rozm; i++) {
+		for (int j = 0; j < *rozm; j++) {
+			cin >> tab[i][j];
+		}
+	}
+	cin >> *mode;
+	if (*mode == 3 || *mode == 4) {
+		cin >> *param;
+	}
 	if (tryb == 0) {
 		if (tryb0(kwadrat, rozm) == 1) {
 			cout << "NO";
